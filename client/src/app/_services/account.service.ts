@@ -25,11 +25,7 @@ export class AccountService {
       map((user: User) => {
         if (user) {
           this.setCurrentUser(user);
-          if (!user.emailConfirmed)
-            this.toastr.warning(
-              'Please make sure to validate your email, otherwise your account will be blocked.',
-              'Email not validated'
-            );
+          if (!user.emailConfirmed) this.showEmailNotValidatedPopUp();
         }
       })
     );
@@ -40,8 +36,16 @@ export class AccountService {
       map((user: User) => {
         if (user) {
           this.setCurrentUser(user);
+          this.showEmailNotValidatedPopUp();
         }
       })
+    );
+  }
+
+  showEmailNotValidatedPopUp() {
+    this.toastr.warning(
+      'Please make sure to validate your email, otherwise your account will be blocked.',
+      'Email not validated'
     );
   }
 
