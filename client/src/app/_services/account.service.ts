@@ -60,6 +60,10 @@ export class AccountService {
     this.presenceService.stopHubConnection();
   }
 
+  isUserLoggedIn() {
+    return this.currentUserSource.value !== null;
+  }
+
   getDecodedToken(token: string) {
     return JSON.parse(atob(token.split('.')[1])); //retrieves the middle part of he JWT (which contains the main information)
   }
