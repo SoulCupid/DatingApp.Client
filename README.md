@@ -18,3 +18,17 @@ Then we need to add this to your angular.json file, under serve:
             "sslCert": "./ssl/localhost.pem"
           }
 ```
+
+
+### Run the app
+
+There are two main ways to run the app. Please position yourself inside the _client_ folder.
+
+The first is to run the application "normally" with the command:
+
+`npm run start`
+
+The second one is to run the app via Docker, with the command:
+`docker compose up -d`
+
+Access the application in: `http://localhost:4200/`
